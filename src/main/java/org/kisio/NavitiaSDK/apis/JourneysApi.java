@@ -1336,13 +1336,17 @@ public class JourneysApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getJourneysCall(String from, String to, DateTime datetime, String datetimeRepresents, Integer maxNbTransfers, Integer minNbTransfers, List<String> firstSectionMode, List<String> lastSectionMode, Integer maxDurationToPt, Integer maxWalkingDurationToPt, Integer maxBikeDurationToPt, Integer maxBssDurationToPt, Integer maxCarDurationToPt, Integer maxRidesharingDurationToPt, Float walkingSpeed, Float bikeSpeed, Float bssSpeed, Float carSpeed, Float ridesharingSpeed, List<String> forbiddenUris, List<String> allowedId, Boolean disruptionActive, String dataFreshness, Integer maxDuration, Boolean wheelchair, String travelerType, String directPath, Integer freeRadiusFrom, Integer freeRadiusTo, Integer count, Boolean isJourneySchedules, Integer minNbJourneys, Integer maxNbJourneys, Boolean bssStands, List<String> addPoiInfos, Integer timeframeDuration, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getJourneysCall(String basePath, String debugUrl, String from, String to, DateTime datetime, String datetimeRepresents, Integer maxNbTransfers, Integer minNbTransfers, List<String> firstSectionMode, List<String> lastSectionMode, Integer maxDurationToPt, Integer maxWalkingDurationToPt, Integer maxBikeDurationToPt, Integer maxBssDurationToPt, Integer maxCarDurationToPt, Integer maxRidesharingDurationToPt, Float walkingSpeed, Float bikeSpeed, Float bssSpeed, Float carSpeed, Float ridesharingSpeed, List<String> forbiddenUris, List<String> allowedId, Boolean disruptionActive, String dataFreshness, Integer maxDuration, Boolean wheelchair, String travelerType, String directPath, Integer freeRadiusFrom, Integer freeRadiusTo, Integer count, Boolean isJourneySchedules, Integer minNbJourneys, Integer maxNbJourneys, Boolean bssStands, List<String> addPoiInfos, Integer timeframeDuration, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/journeys";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (basePath != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "basePath", basePath));
+        if (basePath != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "debugUrl", debugUrl));
         if (from != null)
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
         if (to != null)
@@ -1449,10 +1453,10 @@ public class JourneysApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getJourneysValidateBeforeCall(String from, String to, DateTime datetime, String datetimeRepresents, Integer maxNbTransfers, Integer minNbTransfers, List<String> firstSectionMode, List<String> lastSectionMode, Integer maxDurationToPt, Integer maxWalkingDurationToPt, Integer maxBikeDurationToPt, Integer maxBssDurationToPt, Integer maxCarDurationToPt, Integer maxRidesharingDurationToPt, Float walkingSpeed, Float bikeSpeed, Float bssSpeed, Float carSpeed, Float ridesharingSpeed, List<String> forbiddenUris, List<String> allowedId, Boolean disruptionActive, String dataFreshness, Integer maxDuration, Boolean wheelchair, String travelerType, String directPath, Integer freeRadiusFrom, Integer freeRadiusTo, Integer count, Boolean isJourneySchedules, Integer minNbJourneys, Integer maxNbJourneys, Boolean bssStands, List<String> addPoiInfos, Integer timeframeDuration, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getJourneysValidateBeforeCall(String basePath, String debugUrl, String from, String to, DateTime datetime, String datetimeRepresents, Integer maxNbTransfers, Integer minNbTransfers, List<String> firstSectionMode, List<String> lastSectionMode, Integer maxDurationToPt, Integer maxWalkingDurationToPt, Integer maxBikeDurationToPt, Integer maxBssDurationToPt, Integer maxCarDurationToPt, Integer maxRidesharingDurationToPt, Float walkingSpeed, Float bikeSpeed, Float bssSpeed, Float carSpeed, Float ridesharingSpeed, List<String> forbiddenUris, List<String> allowedId, Boolean disruptionActive, String dataFreshness, Integer maxDuration, Boolean wheelchair, String travelerType, String directPath, Integer freeRadiusFrom, Integer freeRadiusTo, Integer count, Boolean isJourneySchedules, Integer minNbJourneys, Integer maxNbJourneys, Boolean bssStands, List<String> addPoiInfos, Integer timeframeDuration, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getJourneysCall(from, to, datetime, datetimeRepresents, maxNbTransfers, minNbTransfers, firstSectionMode, lastSectionMode, maxDurationToPt, maxWalkingDurationToPt, maxBikeDurationToPt, maxBssDurationToPt, maxCarDurationToPt, maxRidesharingDurationToPt, walkingSpeed, bikeSpeed, bssSpeed, carSpeed, ridesharingSpeed, forbiddenUris, allowedId, disruptionActive, dataFreshness, maxDuration, wheelchair, travelerType, directPath, freeRadiusFrom, freeRadiusTo, count, isJourneySchedules, minNbJourneys, maxNbJourneys, bssStands, addPoiInfos, timeframeDuration, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getJourneysCall(basePath, debugUrl, from, to, datetime, datetimeRepresents, maxNbTransfers, minNbTransfers, firstSectionMode, lastSectionMode, maxDurationToPt, maxWalkingDurationToPt, maxBikeDurationToPt, maxBssDurationToPt, maxCarDurationToPt, maxRidesharingDurationToPt, walkingSpeed, bikeSpeed, bssSpeed, carSpeed, ridesharingSpeed, forbiddenUris, allowedId, disruptionActive, dataFreshness, maxDuration, wheelchair, travelerType, directPath, freeRadiusFrom, freeRadiusTo, count, isJourneySchedules, minNbJourneys, maxNbJourneys, bssStands, addPoiInfos, timeframeDuration, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1499,8 +1503,8 @@ public class JourneysApi {
      * @return Journeys
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    protected Journeys getJourneys(String from, String to, DateTime datetime, String datetimeRepresents, Integer maxNbTransfers, Integer minNbTransfers, List<String> firstSectionMode, List<String> lastSectionMode, Integer maxDurationToPt, Integer maxWalkingDurationToPt, Integer maxBikeDurationToPt, Integer maxBssDurationToPt, Integer maxCarDurationToPt, Integer maxRidesharingDurationToPt, Float walkingSpeed, Float bikeSpeed, Float bssSpeed, Float carSpeed, Float ridesharingSpeed, List<String> forbiddenUris, List<String> allowedId, Boolean disruptionActive, String dataFreshness, Integer maxDuration, Boolean wheelchair, String travelerType, String directPath, Integer freeRadiusFrom, Integer freeRadiusTo, Integer count, Boolean isJourneySchedules, Integer minNbJourneys, Integer maxNbJourneys, Boolean bssStands, List<String> addPoiInfos, Integer timeframeDuration) throws ApiException {
-        ApiResponse<Journeys> resp = getJourneysWithHttpInfo(from, to, datetime, datetimeRepresents, maxNbTransfers, minNbTransfers, firstSectionMode, lastSectionMode, maxDurationToPt, maxWalkingDurationToPt, maxBikeDurationToPt, maxBssDurationToPt, maxCarDurationToPt, maxRidesharingDurationToPt, walkingSpeed, bikeSpeed, bssSpeed, carSpeed, ridesharingSpeed, forbiddenUris, allowedId, disruptionActive, dataFreshness, maxDuration, wheelchair, travelerType, directPath, freeRadiusFrom, freeRadiusTo, count, isJourneySchedules, minNbJourneys, maxNbJourneys, bssStands, addPoiInfos, timeframeDuration);
+    protected Journeys getJourneys(String basePath, String debugUrl, String from, String to, DateTime datetime, String datetimeRepresents, Integer maxNbTransfers, Integer minNbTransfers, List<String> firstSectionMode, List<String> lastSectionMode, Integer maxDurationToPt, Integer maxWalkingDurationToPt, Integer maxBikeDurationToPt, Integer maxBssDurationToPt, Integer maxCarDurationToPt, Integer maxRidesharingDurationToPt, Float walkingSpeed, Float bikeSpeed, Float bssSpeed, Float carSpeed, Float ridesharingSpeed, List<String> forbiddenUris, List<String> allowedId, Boolean disruptionActive, String dataFreshness, Integer maxDuration, Boolean wheelchair, String travelerType, String directPath, Integer freeRadiusFrom, Integer freeRadiusTo, Integer count, Boolean isJourneySchedules, Integer minNbJourneys, Integer maxNbJourneys, Boolean bssStands, List<String> addPoiInfos, Integer timeframeDuration) throws ApiException {
+        ApiResponse<Journeys> resp = getJourneysWithHttpInfo(basePath, debugUrl, from, to, datetime, datetimeRepresents, maxNbTransfers, minNbTransfers, firstSectionMode, lastSectionMode, maxDurationToPt, maxWalkingDurationToPt, maxBikeDurationToPt, maxBssDurationToPt, maxCarDurationToPt, maxRidesharingDurationToPt, walkingSpeed, bikeSpeed, bssSpeed, carSpeed, ridesharingSpeed, forbiddenUris, allowedId, disruptionActive, dataFreshness, maxDuration, wheelchair, travelerType, directPath, freeRadiusFrom, freeRadiusTo, count, isJourneySchedules, minNbJourneys, maxNbJourneys, bssStands, addPoiInfos, timeframeDuration);
         return resp.getData();
     }
 
@@ -1546,8 +1550,8 @@ public class JourneysApi {
      * @return ApiResponse&lt;Journeys&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Journeys> getJourneysWithHttpInfo(String from, String to, DateTime datetime, String datetimeRepresents, Integer maxNbTransfers, Integer minNbTransfers, List<String> firstSectionMode, List<String> lastSectionMode, Integer maxDurationToPt, Integer maxWalkingDurationToPt, Integer maxBikeDurationToPt, Integer maxBssDurationToPt, Integer maxCarDurationToPt, Integer maxRidesharingDurationToPt, Float walkingSpeed, Float bikeSpeed, Float bssSpeed, Float carSpeed, Float ridesharingSpeed, List<String> forbiddenUris, List<String> allowedId, Boolean disruptionActive, String dataFreshness, Integer maxDuration, Boolean wheelchair, String travelerType, String directPath, Integer freeRadiusFrom, Integer freeRadiusTo, Integer count, Boolean isJourneySchedules, Integer minNbJourneys, Integer maxNbJourneys, Boolean bssStands, List<String> addPoiInfos, Integer timeframeDuration) throws ApiException {
-        com.squareup.okhttp.Call call = getJourneysValidateBeforeCall(from, to, datetime, datetimeRepresents, maxNbTransfers, minNbTransfers, firstSectionMode, lastSectionMode, maxDurationToPt, maxWalkingDurationToPt, maxBikeDurationToPt, maxBssDurationToPt, maxCarDurationToPt, maxRidesharingDurationToPt, walkingSpeed, bikeSpeed, bssSpeed, carSpeed, ridesharingSpeed, forbiddenUris, allowedId, disruptionActive, dataFreshness, maxDuration, wheelchair, travelerType, directPath, freeRadiusFrom, freeRadiusTo, count, isJourneySchedules, minNbJourneys, maxNbJourneys, bssStands, addPoiInfos, timeframeDuration, null, null);
+    private ApiResponse<Journeys> getJourneysWithHttpInfo(String basePath, String debugUrl, String from, String to, DateTime datetime, String datetimeRepresents, Integer maxNbTransfers, Integer minNbTransfers, List<String> firstSectionMode, List<String> lastSectionMode, Integer maxDurationToPt, Integer maxWalkingDurationToPt, Integer maxBikeDurationToPt, Integer maxBssDurationToPt, Integer maxCarDurationToPt, Integer maxRidesharingDurationToPt, Float walkingSpeed, Float bikeSpeed, Float bssSpeed, Float carSpeed, Float ridesharingSpeed, List<String> forbiddenUris, List<String> allowedId, Boolean disruptionActive, String dataFreshness, Integer maxDuration, Boolean wheelchair, String travelerType, String directPath, Integer freeRadiusFrom, Integer freeRadiusTo, Integer count, Boolean isJourneySchedules, Integer minNbJourneys, Integer maxNbJourneys, Boolean bssStands, List<String> addPoiInfos, Integer timeframeDuration) throws ApiException {
+        com.squareup.okhttp.Call call = getJourneysValidateBeforeCall(basePath, debugUrl, from, to, datetime, datetimeRepresents, maxNbTransfers, minNbTransfers, firstSectionMode, lastSectionMode, maxDurationToPt, maxWalkingDurationToPt, maxBikeDurationToPt, maxBssDurationToPt, maxCarDurationToPt, maxRidesharingDurationToPt, walkingSpeed, bikeSpeed, bssSpeed, carSpeed, ridesharingSpeed, forbiddenUris, allowedId, disruptionActive, dataFreshness, maxDuration, wheelchair, travelerType, directPath, freeRadiusFrom, freeRadiusTo, count, isJourneySchedules, minNbJourneys, maxNbJourneys, bssStands, addPoiInfos, timeframeDuration, null, null);
         Type localVarReturnType = new TypeToken<Journeys>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1595,7 +1599,7 @@ public class JourneysApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    protected com.squareup.okhttp.Call getJourneysAsync(String from, String to, DateTime datetime, String datetimeRepresents, Integer maxNbTransfers, Integer minNbTransfers, List<String> firstSectionMode, List<String> lastSectionMode, Integer maxDurationToPt, Integer maxWalkingDurationToPt, Integer maxBikeDurationToPt, Integer maxBssDurationToPt, Integer maxCarDurationToPt, Integer maxRidesharingDurationToPt, Float walkingSpeed, Float bikeSpeed, Float bssSpeed, Float carSpeed, Float ridesharingSpeed, List<String> forbiddenUris, List<String> allowedId, Boolean disruptionActive, String dataFreshness, Integer maxDuration, Boolean wheelchair, String travelerType, String directPath, Integer freeRadiusFrom, Integer freeRadiusTo, Integer count, Boolean isJourneySchedules, Integer minNbJourneys, Integer maxNbJourneys, Boolean bssStands, List<String> addPoiInfos, Integer timeframeDuration, final ApiCallback<Journeys> callback) throws ApiException {
+    protected com.squareup.okhttp.Call getJourneysAsync(String basePath, String debugUrl, String from, String to, DateTime datetime, String datetimeRepresents, Integer maxNbTransfers, Integer minNbTransfers, List<String> firstSectionMode, List<String> lastSectionMode, Integer maxDurationToPt, Integer maxWalkingDurationToPt, Integer maxBikeDurationToPt, Integer maxBssDurationToPt, Integer maxCarDurationToPt, Integer maxRidesharingDurationToPt, Float walkingSpeed, Float bikeSpeed, Float bssSpeed, Float carSpeed, Float ridesharingSpeed, List<String> forbiddenUris, List<String> allowedId, Boolean disruptionActive, String dataFreshness, Integer maxDuration, Boolean wheelchair, String travelerType, String directPath, Integer freeRadiusFrom, Integer freeRadiusTo, Integer count, Boolean isJourneySchedules, Integer minNbJourneys, Integer maxNbJourneys, Boolean bssStands, List<String> addPoiInfos, Integer timeframeDuration, final ApiCallback<Journeys> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1616,7 +1620,7 @@ public class JourneysApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getJourneysValidateBeforeCall(from, to, datetime, datetimeRepresents, maxNbTransfers, minNbTransfers, firstSectionMode, lastSectionMode, maxDurationToPt, maxWalkingDurationToPt, maxBikeDurationToPt, maxBssDurationToPt, maxCarDurationToPt, maxRidesharingDurationToPt, walkingSpeed, bikeSpeed, bssSpeed, carSpeed, ridesharingSpeed, forbiddenUris, allowedId, disruptionActive, dataFreshness, maxDuration, wheelchair, travelerType, directPath, freeRadiusFrom, freeRadiusTo, count, isJourneySchedules, minNbJourneys, maxNbJourneys, bssStands, addPoiInfos, timeframeDuration, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getJourneysValidateBeforeCall(basePath, debugUrl, from, to, datetime, datetimeRepresents, maxNbTransfers, minNbTransfers, firstSectionMode, lastSectionMode, maxDurationToPt, maxWalkingDurationToPt, maxBikeDurationToPt, maxBssDurationToPt, maxCarDurationToPt, maxRidesharingDurationToPt, walkingSpeed, bikeSpeed, bssSpeed, carSpeed, ridesharingSpeed, forbiddenUris, allowedId, disruptionActive, dataFreshness, maxDuration, wheelchair, travelerType, directPath, freeRadiusFrom, freeRadiusTo, count, isJourneySchedules, minNbJourneys, maxNbJourneys, bssStands, addPoiInfos, timeframeDuration, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Journeys>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1665,7 +1669,7 @@ public class JourneysApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    protected com.squareup.okhttp.Call getJourneysAsyncRaw(String from, String to, DateTime datetime, String datetimeRepresents, Integer maxNbTransfers, Integer minNbTransfers, List<String> firstSectionMode, List<String> lastSectionMode, Integer maxDurationToPt, Integer maxWalkingDurationToPt, Integer maxBikeDurationToPt, Integer maxBssDurationToPt, Integer maxCarDurationToPt, Integer maxRidesharingDurationToPt, Float walkingSpeed, Float bikeSpeed, Float bssSpeed, Float carSpeed, Float ridesharingSpeed, List<String> forbiddenUris, List<String> allowedId, Boolean disruptionActive, String dataFreshness, Integer maxDuration, Boolean wheelchair, String travelerType, String directPath, Integer freeRadiusFrom, Integer freeRadiusTo, Integer count, Boolean isJourneySchedules, Integer minNbJourneys, Integer maxNbJourneys, Boolean bssStands, List<String> addPoiInfos, Integer timeframeDuration, final ApiCallback<String > callback) throws ApiException {
+    protected com.squareup.okhttp.Call getJourneysAsyncRaw(String basePath, String debugUrl, String from, String to, DateTime datetime, String datetimeRepresents, Integer maxNbTransfers, Integer minNbTransfers, List<String> firstSectionMode, List<String> lastSectionMode, Integer maxDurationToPt, Integer maxWalkingDurationToPt, Integer maxBikeDurationToPt, Integer maxBssDurationToPt, Integer maxCarDurationToPt, Integer maxRidesharingDurationToPt, Float walkingSpeed, Float bikeSpeed, Float bssSpeed, Float carSpeed, Float ridesharingSpeed, List<String> forbiddenUris, List<String> allowedId, Boolean disruptionActive, String dataFreshness, Integer maxDuration, Boolean wheelchair, String travelerType, String directPath, Integer freeRadiusFrom, Integer freeRadiusTo, Integer count, Boolean isJourneySchedules, Integer minNbJourneys, Integer maxNbJourneys, Boolean bssStands, List<String> addPoiInfos, Integer timeframeDuration, final ApiCallback<String > callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1686,7 +1690,7 @@ public class JourneysApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getJourneysValidateBeforeCall(from, to, datetime, datetimeRepresents, maxNbTransfers, minNbTransfers, firstSectionMode, lastSectionMode, maxDurationToPt, maxWalkingDurationToPt, maxBikeDurationToPt, maxBssDurationToPt, maxCarDurationToPt, maxRidesharingDurationToPt, walkingSpeed, bikeSpeed, bssSpeed, carSpeed, ridesharingSpeed, forbiddenUris, allowedId, disruptionActive, dataFreshness, maxDuration, wheelchair, travelerType, directPath, freeRadiusFrom, freeRadiusTo, count, isJourneySchedules, minNbJourneys, maxNbJourneys, bssStands, addPoiInfos, timeframeDuration, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getJourneysValidateBeforeCall(basePath, debugUrl, from, to, datetime, datetimeRepresents, maxNbTransfers, minNbTransfers, firstSectionMode, lastSectionMode, maxDurationToPt, maxWalkingDurationToPt, maxBikeDurationToPt, maxBssDurationToPt, maxCarDurationToPt, maxRidesharingDurationToPt, walkingSpeed, bikeSpeed, bssSpeed, carSpeed, ridesharingSpeed, forbiddenUris, allowedId, disruptionActive, dataFreshness, maxDuration, wheelchair, travelerType, directPath, freeRadiusFrom, freeRadiusTo, count, isJourneySchedules, minNbJourneys, maxNbJourneys, bssStands, addPoiInfos, timeframeDuration, progressListener, progressRequestListener);
         apiClient.executeAsync(call, String.class, callback);
         return call;
     }
@@ -1697,6 +1701,8 @@ public class JourneysApi {
 
     public class JourneysRequestBuilder {
         private JourneysApi currentApi;
+        private String basePath;
+        private String debugUrl;
         private String from;
         private String to;
         private DateTime datetime;
@@ -1738,6 +1744,14 @@ public class JourneysApi {
             this.currentApi = currentApi;
         }
 
+        public JourneysRequestBuilder withBasePath(String basePath) {
+            this.basePath = basePath;
+            return this;
+        }
+        public JourneysRequestBuilder withDebugUrl(String debugUrl) {
+            this.debugUrl = debugUrl;
+            return this;
+        }
         public JourneysRequestBuilder withFrom(String from) {
             this.from = from;
             return this;
@@ -1884,11 +1898,11 @@ public class JourneysApi {
         }
 
         public com.squareup.okhttp.Call get(final ApiCallback<Journeys > callback) throws ApiException {
-            return currentApi.getJourneysAsync(this.from, this.to, this.datetime, this.datetimeRepresents, this.maxNbTransfers, this.minNbTransfers, this.firstSectionMode, this.lastSectionMode, this.maxDurationToPt, this.maxWalkingDurationToPt, this.maxBikeDurationToPt, this.maxBssDurationToPt, this.maxCarDurationToPt, this.maxRidesharingDurationToPt, this.walkingSpeed, this.bikeSpeed, this.bssSpeed, this.carSpeed, this.ridesharingSpeed, this.forbiddenUris, this.allowedId, this.disruptionActive, this.dataFreshness, this.maxDuration, this.wheelchair, this.travelerType, this.directPath, this.freeRadiusFrom, this.freeRadiusTo, this.count, this.isJourneySchedules, this.minNbJourneys, this.maxNbJourneys, this.bssStands, this.addPoiInfos, this.timeframeDuration, callback);
+            return currentApi.getJourneysAsync(this.basePath, this.debugUrl, this.from, this.to, this.datetime, this.datetimeRepresents, this.maxNbTransfers, this.minNbTransfers, this.firstSectionMode, this.lastSectionMode, this.maxDurationToPt, this.maxWalkingDurationToPt, this.maxBikeDurationToPt, this.maxBssDurationToPt, this.maxCarDurationToPt, this.maxRidesharingDurationToPt, this.walkingSpeed, this.bikeSpeed, this.bssSpeed, this.carSpeed, this.ridesharingSpeed, this.forbiddenUris, this.allowedId, this.disruptionActive, this.dataFreshness, this.maxDuration, this.wheelchair, this.travelerType, this.directPath, this.freeRadiusFrom, this.freeRadiusTo, this.count, this.isJourneySchedules, this.minNbJourneys, this.maxNbJourneys, this.bssStands, this.addPoiInfos, this.timeframeDuration, callback);
         }
 
         public com.squareup.okhttp.Call rawGet(final ApiCallback<String > callback) throws ApiException {
-            return currentApi.getJourneysAsyncRaw(this.from, this.to, this.datetime, this.datetimeRepresents, this.maxNbTransfers, this.minNbTransfers, this.firstSectionMode, this.lastSectionMode, this.maxDurationToPt, this.maxWalkingDurationToPt, this.maxBikeDurationToPt, this.maxBssDurationToPt, this.maxCarDurationToPt, this.maxRidesharingDurationToPt, this.walkingSpeed, this.bikeSpeed, this.bssSpeed, this.carSpeed, this.ridesharingSpeed, this.forbiddenUris, this.allowedId, this.disruptionActive, this.dataFreshness, this.maxDuration, this.wheelchair, this.travelerType, this.directPath, this.freeRadiusFrom, this.freeRadiusTo, this.count, this.isJourneySchedules, this.minNbJourneys, this.maxNbJourneys, this.bssStands, this.addPoiInfos, this.timeframeDuration, callback);
+            return currentApi.getJourneysAsyncRaw(this.basePath, this.debugUrl, this.from, this.to, this.datetime, this.datetimeRepresents, this.maxNbTransfers, this.minNbTransfers, this.firstSectionMode, this.lastSectionMode, this.maxDurationToPt, this.maxWalkingDurationToPt, this.maxBikeDurationToPt, this.maxBssDurationToPt, this.maxCarDurationToPt, this.maxRidesharingDurationToPt, this.walkingSpeed, this.bikeSpeed, this.bssSpeed, this.carSpeed, this.ridesharingSpeed, this.forbiddenUris, this.allowedId, this.disruptionActive, this.dataFreshness, this.maxDuration, this.wheelchair, this.travelerType, this.directPath, this.freeRadiusFrom, this.freeRadiusTo, this.count, this.isJourneySchedules, this.minNbJourneys, this.maxNbJourneys, this.bssStands, this.addPoiInfos, this.timeframeDuration, callback);
         }
     }
 }

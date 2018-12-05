@@ -1161,14 +1161,20 @@ public class ApiClient {
      * @return The full URL
      */
     public String buildUrl(String path, List<Pair> queryParams) {
+        String queryDebugUrl = getRequestedParam(queryParams, "debugUrl");
+        if (queryDebugUrl != null) {
+            return queryDebugUrl;
+        }
+
         final StringBuilder url = new StringBuilder();
-        url.append(basePath).append(path);
+        String queryBasePath = getRequestedParam(queryParams, "basePath");
+        url.append(queryBasePath != null ? queryBasePath : basePath).append(path);
 
         if (queryParams != null && !queryParams.isEmpty()) {
             // support (constant) query string in `path`, e.g. "/posts?draft=1"
             String prefix = path.contains("?") ? "&" : "?";
             for (Pair param : queryParams) {
-                if (param.getValue() != null) {
+                if (!"basePath".equals(param.getName()) && param.getValue() != null) {
                     if (prefix != null) {
                         url.append(prefix);
                         prefix = null;
@@ -1182,6 +1188,18 @@ public class ApiClient {
         }
 
         return url.toString();
+    }
+
+    private String getRequestedParam(List<Pair> queryParamsList, String paramName) {
+        if (queryParamsList != null && !queryParamsList.isEmpty()) {
+            for (Pair queryParam : queryParamsList) {
+                if (paramName.equals(queryParam.getName())) {
+                    return queryParam.getValue();
+                }
+            }
+        }
+
+        return null;
     }
 
     /**
