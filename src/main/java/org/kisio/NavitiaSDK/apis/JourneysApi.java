@@ -1352,7 +1352,7 @@ public class JourneysApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (basePath != null)
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "basePath", basePath));
-        if (basePath != null)
+        if (debugUrl != null)
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "debugUrl", debugUrl));
         if (from != null)
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
