@@ -10,8 +10,8 @@ version = publishVersion
 
 buildscript {
     repositories {
-        jcenter()
         google()
+        jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.4'
@@ -21,8 +21,8 @@ buildscript {
 }
 
 repositories {
-    jcenter()
     google()
+    jcenter()
 }
 
 if(hasProperty('target') && target == 'android') {
